@@ -11,6 +11,7 @@
     "bmp-j": "cc-bmp -j",
     "circle": "cc-generate-yml",
     "post-dependencies": "echo post-dependencies",
+    "pre-release": "gulp babel:all",
     "post-release": "echo post-release",
     "gh-pages": "echo gh-pages"
   },
@@ -39,6 +40,12 @@
   },
   "devDependencies": {
     "babel-cli": "^6.6.5",
+    "babel-preset-es2015": "^6.5.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-plumber": "^1.1.0",
+    "gulp-util": "^3.0.7",
     "node-circleci-autorelease": "^1.5.11"
   },
   "node-circleci-autorelease": {
