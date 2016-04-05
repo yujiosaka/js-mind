@@ -1,0 +1,26 @@
+general:
+    branches:
+        ignore:
+            - gh-pages
+            - '/release.*/'
+machine:
+    environment:
+        PATH: '$PATH:$HOME/$CIRCLE_PROJECT_REPONAME/node_modules/node-circleci-autorelease/bin'
+        VERSION_PREFIX: v
+        CREATE_GH_PAGES: 1
+        GH_PAGES_DIR: doc
+    pre:
+        - "git config --global user.name 'CircleCI'"
+        - "git config --global user.email 'circleci@cureapp.jp'"
+    node:
+        version: 4.4.2
+dependencies:
+    post:
+        - npm run post-dependencies
+deployment:
+    create_release_branch:
+        branch:
+            - master
+        commands:
+            - 'cc-prepare-for-release && npm run pre-release && cc-release || cc-not-released'
+            - cc-gh-pages

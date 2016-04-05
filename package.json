@@ -1,10 +1,26 @@
 {
   "name": "js-mind",
   "version": "1.0.0",
-  "description": "Deep Learning Library Written in ES2015.",
-  "main": "index.js",
-  "scripts":{
-    "build": "babel src -d dist"
+  "description": "Deep Learning Library Written in ES6+.",
+  "main": "dist/index.js",
+  "directories": {
+    "test": "spec"
+  },
+  "engines": {
+    "node": ">=0.12"
+  },
+  "scripts": {
+    "test": "mocha --compilers js:espower-babel/guess spec/**/*.spec.js",
+    "build": "babel src -d dist",
+    "bmp": "cc-bmp",
+    "bmp-p": "cc-bmp -p",
+    "bmp-m": "cc-bmp -m",
+    "bmp-j": "cc-bmp -j",
+    "circle": "cc-generate-yml",
+    "post-dependencies": "echo post-dependencies",
+    "pre-release": "gulp babel:all",
+    "post-release": "echo post-release",
+    "gh-pages": "esdoc -c esdoc.json"
   },
   "repository": {
     "type": "git",
@@ -20,6 +36,11 @@
     "learning"
   ],
   "author": "Yuji Isobe",
+  "contributors": [
+    { "name": "Shin Suzuki"
+    , "email": "shinout310@gmail.com"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/yujiosaka/js-mind/issues"
@@ -30,6 +51,33 @@
     "lodash": "^4.3.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.6.5"
+    "babel-cli": "^6.6.5",
+    "babel-preset-es2015": "^6.5.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "esdoc": "^0.4.4",
+    "esdoc-es7-plugin": "0.0.3",
+    "espower-babel": "^4.0.1",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-plumber": "^1.1.0",
+    "gulp-util": "^3.0.7",
+    "mocha": "^2.4.5",
+    "node-circleci-autorelease": "^1.5.11",
+    "power-assert": "^1.2.0"
+  },
+  "node-circleci-autorelease": {
+    "machine": {
+      "node": {
+        "version": "4.4.2"
+      }
+    },
+    "config": {
+      "git-user-name": "CircleCI",
+      "git-user-email": "circleci@cureapp.jp",
+      "version-prefix": "v",
+      "create-branch": false,
+      "create-gh-pages": true,
+      "gh-pages-dir": "doc"
+    }
   }
 }

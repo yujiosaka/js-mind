@@ -1,3 +1,9 @@
+# Source for distribution
+dist
+
+# ESDoc
+doc
+
 # Logs
 logs
 *.log
