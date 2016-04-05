@@ -3,8 +3,16 @@
   "version": "1.0.0",
   "description": "Deep Learning Library Written in ES2015.",
   "main": "index.js",
-  "scripts":{
-    "build": "babel src -d dist"
+  "scripts": {
+    "build": "babel src -d dist",
+    "bmp": "cc-bmp",
+    "bmp-p": "cc-bmp -p",
+    "bmp-m": "cc-bmp -m",
+    "bmp-j": "cc-bmp -j",
+    "circle": "cc-generate-yml",
+    "post-dependencies": "echo post-dependencies",
+    "post-release": "echo post-release",
+    "gh-pages": "echo gh-pages"
   },
   "repository": {
     "type": "git",
@@ -30,6 +38,17 @@
     "lodash": "^4.3.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.6.5"
+    "babel-cli": "^6.6.5",
+    "node-circleci-autorelease": "^1.5.11"
+  },
+  "node-circleci-autorelease": {
+    "config": {
+      "git-user-name": "CircleCI",
+      "git-user-email": "circleci@cureapp.jp",
+      "version-prefix": "v",
+      "create-branch": false,
+      "create-gh-pages": false,
+      "gh-pages-dir": "doc"
+    }
   }
 }
