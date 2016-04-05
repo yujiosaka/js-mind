@@ -1,6 +1,6 @@
 "use strict";
 
-var jsmind = require("js-mind");
+var jsmind = require("../dist");
 
 var mnistLoader = jsmind.mnistLoader;
 var trainingData = mnistLoader.loadTrainingDataWrapper();
