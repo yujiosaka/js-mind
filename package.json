@@ -1,0 +1,35 @@
+{
+  "name": "js-mind",
+  "version": "1.0.0",
+  "description": "Deep Learning Library Written in ES2015.",
+  "main": "index.js",
+  "scripts":{
+    "build": "babel src -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yujiosaka/js-mind.git"
+  },
+  "keywords": [
+    "es6",
+    "neural",
+    "network",
+    "convolutional",
+    "deep",
+    "machine",
+    "learning"
+  ],
+  "author": "Yuji Isobe",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yujiosaka/js-mind/issues"
+  },
+  "homepage": "https://github.com/yujiosaka/js-mind#readme",
+  "dependencies": {
+    "linear-algebra": "git://github.com/yujiosaka/linear-algebra#for_neural_networks_and_deep_learning",
+    "lodash": "^4.3.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.6.5"
+  }
+}
