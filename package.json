@@ -2,7 +2,7 @@
   "name": "js-mind",
   "version": "1.0.0",
   "description": "Deep Learning Library Written in ES2015.",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "babel src -d dist",
     "bmp": "cc-bmp",
