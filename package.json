@@ -4,6 +4,7 @@
   "description": "Deep Learning Library Written in ES2015.",
   "main": "dist/index.js",
   "scripts": {
+    "test": "echo no test yet",
     "build": "babel src -d dist",
     "bmp": "cc-bmp",
     "bmp-p": "cc-bmp -p",
