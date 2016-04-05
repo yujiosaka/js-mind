@@ -3,11 +3,14 @@
   "version": "1.0.0",
   "description": "Deep Learning Library Written in ES6+.",
   "main": "dist/index.js",
+  "directories": {
+    "test": "spec"
+  },
   "engines": {
     "node": ">=0.12"
   },
   "scripts": {
-    "test": "echo no test yet",
+    "test": "mocha --compilers js:espower-babel/guess spec/**/*.spec.js",
     "build": "babel src -d dist",
     "bmp": "cc-bmp",
     "bmp-p": "cc-bmp -p",
@@ -53,11 +56,14 @@
     "babel-preset-stage-0": "^6.5.0",
     "esdoc": "^0.4.4",
     "esdoc-es7-plugin": "0.0.3",
+    "espower-babel": "^4.0.1",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "gulp-plumber": "^1.1.0",
     "gulp-util": "^3.0.7",
-    "node-circleci-autorelease": "^1.5.11"
+    "mocha": "^2.4.5",
+    "node-circleci-autorelease": "^1.5.11",
+    "power-assert": "^1.2.0"
   },
   "node-circleci-autorelease": {
     "machine": {
