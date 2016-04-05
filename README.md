@@ -3,6 +3,8 @@ WIP
 # js-mind
 Deep Learning Library Written in ES2015.
 
+[API Documentation](https://shinout.github.io/js-mind/api)
+
 ## Features
 
   * Convolutional Neural Network

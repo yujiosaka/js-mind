@@ -17,7 +17,7 @@
     "post-dependencies": "echo post-dependencies",
     "pre-release": "gulp babel:all",
     "post-release": "echo post-release",
-    "gh-pages": "echo gh-pages"
+    "gh-pages": "esdoc -c esdoc.json"
   },
   "repository": {
     "type": "git",
@@ -51,6 +51,8 @@
     "babel-cli": "^6.6.5",
     "babel-preset-es2015": "^6.5.0",
     "babel-preset-stage-0": "^6.5.0",
+    "esdoc": "^0.4.4",
+    "esdoc-es7-plugin": "0.0.3",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "gulp-plumber": "^1.1.0",
@@ -68,7 +70,7 @@
       "git-user-email": "circleci@cureapp.jp",
       "version-prefix": "v",
       "create-branch": false,
-      "create-gh-pages": false,
+      "create-gh-pages": true,
       "gh-pages-dir": "doc"
     }
   }
