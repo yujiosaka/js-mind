@@ -1,7 +1,7 @@
 {
   "name": "js-mind",
   "version": "1.0.0",
-  "description": "Deep Learning Library Written in ES2015.",
+  "description": "Deep Learning Library Written in ES6+.",
   "main": "dist/index.js",
   "engines": {
     "node": ">=0.12"
@@ -33,6 +33,11 @@
     "learning"
   ],
   "author": "Yuji Isobe",
+  "contributors": [
+    { "name": "Shin Suzuki"
+    , "email": "shinout310@gmail.com"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/yujiosaka/js-mind/issues"
