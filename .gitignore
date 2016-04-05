@@ -1,3 +1,6 @@
+# Source for distribution
+dist
+
 # Logs
 logs
 *.log
