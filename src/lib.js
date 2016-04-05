@@ -63,12 +63,12 @@ export function norm(mu, sigma) {
  * @return {Matrix} random matrix
  */
 export function randn(rows, cols) {
-  let result = new Array(rows);
+  const result = new Array(rows);
   for (let i = 0; i < rows; i++) {
     result[i] = []
     for (let j = 0; j < cols; j++) {
       result[i][j] = norm(0, 1)
     }
   }
-  return result;
+  return new Matrix(result);
 }

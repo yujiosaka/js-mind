@@ -91,8 +91,8 @@ describe('randn', ()=> {
 
     const Z = 4.0 // p < 1.0e-4
 
-    result.map(cols => {
-      cols.forEach(elem => assert(Math.abs(elem) < Z))
+    result.map(elem => {
+      assert(Math.abs(elem) < Z)
     })
 
   })
