@@ -1,7 +1,7 @@
 "use strict";
 
-var linearAlgebra = require("linear-algebra")();
-var Matrix = linearAlgebra.Matrix;
+const linearAlgebra = require("linear-algebra")();
+const { Matrix } = linearAlgebra;
 
 /**
  * Derivative of the sigmoid function.
@@ -20,7 +20,7 @@ export function sigmoidPrime(z) {
  * @return {Matrix} 10x1
  */
 export function vectorizedResult(j) {
-  var e = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(i => { return [0]; });
+  const e = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(i => [0]);
   e[j] = [1];
   return new Matrix(e);
 };
@@ -44,9 +44,9 @@ export function dropoutLayer(layer, pDropout) {
  * @return {number} sample
  */
 export function norm(mu, sigma) {
-  let a = 1 - Math.random();
-  let b = 1 - Math.random();
-  let c = Math.sqrt(-2 * Math.log(a));
+  const a = 1 - Math.random();
+  const b = 1 - Math.random();
+  const c = Math.sqrt(-2 * Math.log(a));
   if (0.5 - Math.random() > 0) {
     return c * Math.sin(Math.PI * 2 * b) * sigma + mu;
   } else {
