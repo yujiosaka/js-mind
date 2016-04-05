@@ -10,7 +10,9 @@ machine:
         GH_PAGES_DIR: doc
     pre:
         - "git config --global user.name 'CircleCI'"
-        - "git config --global user.email 'circleci@example.com'"
+        - "git config --global user.email 'circleci@cureapp.jp'"
+    node:
+        version: 4.4.2
 dependencies:
     post:
         - npm run post-dependencies

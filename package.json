@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Deep Learning Library Written in ES2015.",
   "main": "dist/index.js",
+  "engines": {
+    "node": ">=0.12"
+  },
   "scripts": {
     "test": "echo no test yet",
     "build": "babel src -d dist",
@@ -50,6 +53,11 @@
     "node-circleci-autorelease": "^1.5.11"
   },
   "node-circleci-autorelease": {
+    "machine": {
+      "node": {
+        "version": "4.4.2"
+      }
+    },
     "config": {
       "git-user-name": "CircleCI",
       "git-user-email": "circleci@cureapp.jp",
