@@ -20,7 +20,7 @@ Deep Learning Library Written in ES2015.
 
 ## How To Use
 
-```
+```javascript
 "use strict";
 
 var jsmind = require("../dist");
