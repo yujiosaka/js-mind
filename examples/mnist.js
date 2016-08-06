@@ -13,7 +13,7 @@ Promise.all([
   var net = new jsmind.Network([
     new jsmind.layers.FullyConnectedLayer(784, 100),
     new jsmind.layers.FullyConnectedLayer(100, 100),
-    new jsmind.layers.FullyConnectedLayer(100, 10)
+    new jsmind.layers.SoftmaxLayer(100, 10)
   ]);
   net.SGD(trainingData, 60, 10, 0.03, {
     validationData: validationData,
