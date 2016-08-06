@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-const linearAlgebra = require("linear-algebra")();
+const linearAlgebra = require('linear-algebra')();
 const { Matrix } = linearAlgebra;
 
 /**

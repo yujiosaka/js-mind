@@ -1,8 +1,8 @@
-"use strict";
+'use strict';
 
-var Promise = require("bluebird");
+var Promise = require('bluebird');
 
-var jsmind = require("../dist");
+var jsmind = require('../dist');
 
 var MnistLoader = jsmind.MnistLoader;
 Promise.all([
@@ -15,7 +15,6 @@ Promise.all([
     new jsmind.layers.FullyConnectedLayer(100, 100, {pDropout: 0.5}),
     new jsmind.layers.FullyConnectedLayer(100, 10, {pDropout: 0.5})
   ]);
-
   net.SGD(trainingData, 60, 10, 0.1, {
     validationData: validationData,
     testData: testData,

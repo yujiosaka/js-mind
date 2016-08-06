@@ -1,10 +1,10 @@
-"use strict";
+'use strict';
 
-let _ = require("lodash");
-let linearAlgebra = require("linear-algebra")();
+let _ = require('lodash');
+let linearAlgebra = require('linear-algebra')();
 let Matrix = linearAlgebra.Matrix;
 
-let DataLoader = require("./data_loader")
+let DataLoader = require('./data_loader')
 
 class MnistLoader {
   static loadTrainingDataWrapper() {

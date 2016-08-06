@@ -1,9 +1,9 @@
-"use strict";
+'use strict';
 
-let _ = require("lodash");
-let linearAlgebra = require("linear-algebra")();
+let _ = require('lodash');
+let linearAlgebra = require('linear-algebra')();
 let Matrix = linearAlgebra.Matrix;
-let lib = require("./lib");
+let lib = require('./lib');
 
 class Network {
   constructor(layers) {
@@ -31,34 +31,34 @@ class Network {
 
       for (let [i, miniBatch] of miniBatches.entries()) {
         let iteration = trainingData.length / miniBatchSize * j + i;
-        (iteration % 1000 === 0 ? console.log(("Training mini-batch number " + (iteration))) : undefined);
+        (iteration % 1000 === 0 ? console.log(('Training mini-batch number ' + (iteration))) : undefined);
         this.updateMiniBatch(miniBatch, eta, opts.lmbda, trainingData.length);
       }
 
       if (opts.validationData) {
         let validationAccuracy = this.accuracy(opts.validationData);
-        console.log(("Epoch " + (j) + ": validation accuracy " + (validationAccuracy)));
+        console.log(('Epoch ' + (j) + ': validation accuracy ' + (validationAccuracy)));
 
         if (validationAccuracy >= bestValidationAccuracy) {
-          console.log("This is the best validation accuracy to date.");
+          console.log('This is the best validation accuracy to date.');
           bestValidationAccuracy = validationAccuracy;
 
           if (opts.testData) {
             testAccuracy = this.accuracy(opts.testData);
-            console.log(("The corresponding test accuracy " + (testAccuracy)));
+            console.log(('The corresponding test accuracy ' + (testAccuracy)));
           }
         }
       } else if (opts.testData) {
         testAccuracy = this.accuracy(opts.testData);
-        console.log(("Epoch " + (j) + ": test accuracy " + (testAccuracy)));
+        console.log(('Epoch ' + (j) + ': test accuracy ' + (testAccuracy)));
       }
     }
 
-    console.log("Finished training network.");
+    console.log('Finished training network.');
 
     if (opts.validationData) {
-      console.log(("Best validation accuracy " + (bestValidationAccuracy)));
-      return (opts.testData ? console.log(("Corresponding test accuracy " + (testAccuracy))) : undefined);
+      console.log(('Best validation accuracy ' + (bestValidationAccuracy)));
+      return (opts.testData ? console.log(('Corresponding test accuracy ' + (testAccuracy))) : undefined);
     }
   }
 

@@ -1,8 +1,8 @@
-"use strict";
+'use strict';
 
-let linearAlgebra = require("linear-algebra")();
+let linearAlgebra = require('linear-algebra')();
 let Matrix = linearAlgebra.Matrix;
-let lib = require("../lib");
+let lib = require('../lib');
 
 class FullyConnectedLayer {
   constructor(nIn, nOut, opts = {}) {

@@ -1,9 +1,9 @@
-"use strict";
+'use strict';
 
-let Promise = require("bluebird");
-let fs = require("fs");
-let zlib = require("zlib");
-let path = require("path");
+let Promise = require('bluebird');
+let fs = require('fs');
+let zlib = require('zlib');
+let path = require('path');
 Promise.promisifyAll(fs);
 Promise.promisifyAll(zlib);
 
