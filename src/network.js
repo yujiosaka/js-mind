@@ -31,13 +31,15 @@ class Network {
 
       for (let [i, miniBatch] of miniBatches.entries()) {
         let iteration = trainingData.length / miniBatchSize * j + i;
-        (iteration % 1000 === 0 ? console.log(('Training mini-batch number ' + (iteration))) : undefined);
+        if (iteration % 1000 === 0) {
+          console.log(`Training mini-batch number ${iteration}`);
+        }
         this.updateMiniBatch(miniBatch, eta, opts.lmbda, trainingData.length);
       }
 
       if (opts.validationData) {
         let validationAccuracy = this.accuracy(opts.validationData);
-        console.log(('Epoch ' + (j) + ': validation accuracy ' + (validationAccuracy)));
+        console.log(`Epoch ${j}: validation accuracy ${validationAccuracy}`);
 
         if (validationAccuracy >= bestValidationAccuracy) {
           console.log('This is the best validation accuracy to date.');
@@ -45,20 +47,22 @@ class Network {
 
           if (opts.testData) {
             testAccuracy = this.accuracy(opts.testData);
-            console.log(('The corresponding test accuracy ' + (testAccuracy)));
+            console.log(`The corresponding test accuracy ${testAccuracy}`);
           }
         }
       } else if (opts.testData) {
         testAccuracy = this.accuracy(opts.testData);
-        console.log(('Epoch ' + (j) + ': test accuracy ' + (testAccuracy)));
+        console.log(`Epoch ${j}: test accuracy ${testAccuracy}`);
       }
     }
 
     console.log('Finished training network.');
 
     if (opts.validationData) {
-      console.log(('Best validation accuracy ' + (bestValidationAccuracy)));
-      return (opts.testData ? console.log(('Corresponding test accuracy ' + (testAccuracy))) : undefined);
+      console.log(`Best validation accuracy ${bestValidationAccuracy}`);
+      if (opts.testData) {
+        console.log(`Corresponding test accuracy ${testAccuracy}`);
+      }
     }
   }
 
