@@ -37,8 +37,9 @@
   ],
   "author": "Yuji Isobe",
   "contributors": [
-    { "name": "Shin Suzuki"
-    , "email": "shinout310@gmail.com"
+    {
+      "name": "Shin Suzuki",
+      "email": "shinout310@gmail.com"
     }
   ],
   "license": "MIT",
@@ -47,6 +48,7 @@
   },
   "homepage": "https://github.com/yujiosaka/js-mind#readme",
   "dependencies": {
+    "bluebird": "^3.4.1",
     "linear-algebra": "git://github.com/yujiosaka/linear-algebra#for_neural_networks_and_deep_learning",
     "lodash": "^4.3.0"
   },
