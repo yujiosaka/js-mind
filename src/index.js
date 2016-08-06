@@ -2,4 +2,4 @@
 
 exports.layers = require('./layers');
 exports.Network = require('./network');
-exports.mnistLoader = require('./mnist_loader');
+exports.MnistLoader = require('./mnist_loader');

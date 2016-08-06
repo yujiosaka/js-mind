@@ -2,10 +2,10 @@
 
 var jsmind = require("../dist");
 
-var mnistLoader = jsmind.mnistLoader;
-var trainingData = mnistLoader.loadTrainingDataWrapper();
-var validationData = mnistLoader.loadValidationDataWrapper();
-var testData = mnistLoader.loadTestDataWrapper();
+var MnistLoader = jsmind.MnistLoader;
+var trainingData = MnistLoader.loadTrainingDataWrapper();
+var validationData = MnistLoader.loadValidationDataWrapper();
+var testData = MnistLoader.loadTestDataWrapper();
 
 var net = new jsmind.Network([
   new jsmind.layers.FullyConnectedLayer(784, 100, {pDropout: 0.5}),
