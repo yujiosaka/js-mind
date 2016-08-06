@@ -13,19 +13,6 @@ export function sigmoidPrime(z) {
 };
 
 /**
- * Return a 10-dimensional unit vector with a 1.0 in the j'th position
- * and zeroes elsewhere.  This is used to convert a digit (0...9)
- * into a corresponding desired output from the neural network.
- * @param {number} j interger: zero to nine
- * @return {Matrix} 10x1
- */
-export function vectorizedResult(j) {
-  const e = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(i => [0]);
-  e[j] = [1];
-  return new Matrix(e);
-};
-
-/**
  * Randomly drop values from a layer.
  * @param {Matrix} layer
  * @param {number} pDropout probability to drop out value for each element
