@@ -12,7 +12,6 @@ Promise.all([
 ]).spread(function(trainingData, validationData, testData) {
   var net = new jsmind.Network([
     new jsmind.layers.FullyConnectedLayer(784, 100),
-    new jsmind.layers.FullyConnectedLayer(100, 100),
     new jsmind.layers.SoftmaxLayer(100, 10)
   ]);
   net.SGD(trainingData, 60, 10, 0.03, {
