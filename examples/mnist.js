@@ -11,11 +11,11 @@ Promise.all([
   MnistLoader.loadTestDataWrapper()
 ]).spread(function(trainingData, validationData, testData) {
   var net = new jsmind.Network([
-    new jsmind.layers.FullyConnectedLayer(784, 100, {pDropout: 0.5}),
-    new jsmind.layers.FullyConnectedLayer(100, 100, {pDropout: 0.5}),
-    new jsmind.layers.FullyConnectedLayer(100, 10, {pDropout: 0.5})
+    new jsmind.layers.FullyConnectedLayer(784, 100),
+    new jsmind.layers.FullyConnectedLayer(100, 100),
+    new jsmind.layers.FullyConnectedLayer(100, 10)
   ]);
-  net.SGD(trainingData, 60, 10, 0.1, {
+  net.SGD(trainingData, 60, 10, 0.03, {
     validationData: validationData,
     testData: testData,
     lmbda: 0.1
