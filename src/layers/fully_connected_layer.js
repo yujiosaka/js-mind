@@ -9,6 +9,7 @@ class FullyConnectedLayer {
     this.nIn = nIn;
     this.nOut = nOut;
     this.pDropout = opts.pDropout || (opts.pDropout = 0);
+    this.activationFn = opts.activationFn || (opts.activationFn = 'sigmoid');
     this.w = lib.randn(this.nOut, this.nIn).mulEach(1 / Math.sqrt(this.nIn));
     this.b = lib.randn(this.nOut, 1);
   }
@@ -21,20 +22,17 @@ class FullyConnectedLayer {
       }
       return results;
     }));
+    let axis = 0;
     this.input = input;
     this.z = this.w.dot(input).mulEach(1 - this.pDropout).plus(bMask);
-    this.output = this.z.sigmoid();
+    this.output = this.z[this.activationFn](axis);
     this.yOut = this.output.getArgMax();
     this.inputDropout = lib.dropoutLayer(inputDropout, this.pDropout);
-    return this.outputDropout = this.w.dot(this.inputDropout).plus(bMask).sigmoid();
+    return this.outputDropout = this.w.dot(this.inputDropout).plus(bMask)[this.activationFn](axis);
   }
 
   accuracy(y) {
     return this.yOut === y;
-  }
-
-  costDelta(y) {
-    return this.outputDropout.minus(y).mul(lib.sigmoidPrime(this.z));
   }
 
   update(delta) {
