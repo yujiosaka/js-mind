@@ -17,7 +17,8 @@ class Network {
     for (let j = 0; j < epochs; j++) {
       trainingData = _.shuffle(trainingData);
       let miniBatches = this.createMiniBatches(trainingData, miniBatchSize);
-      for (let [i, miniBatch] of miniBatches.entries()) {
+      for (let i = 0; i < miniBatches.length; i++) {
+        let miniBatch = miniBatches[i];
         let iteration = trainingData.length / miniBatchSize * j + i;
         if (iteration % 1000 === 0) {
           console.log(`Training mini-batch number ${iteration}`);
@@ -63,7 +64,8 @@ class Network {
     let y = new Matrix(miniBatch.map(([_x, _y]) => { return _y.ravel();})).trans();
     this.train(x, miniBatch.length);
     this.backprop(y);
-    for (let layer of this.layers) {
+    for (let i = 0; i < this.layers.length; i++) {
+      let layer = this.layers[i];
       layer.w = layer.w.mulEach(1 - eta * (lmbda / n)).minus((layer.nw.mulEach(eta / miniBatch.length)));
       layer.b = layer.b.minus(layer.nb.mulEach(eta / miniBatch.length));
     }
