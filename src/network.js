@@ -11,8 +11,6 @@ class Network {
   }
 
   SGD(trainingData, epochs, miniBatchSize, eta, opts = {}) {
-    opts.validationData || (opts.validationData = null);
-    opts.testData || (opts.testData = null);
     opts.lmbda || (opts.lmbda = 0);
     let bestValidationAccuracy = 0;
     let testAccuracy = null;
