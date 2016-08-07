@@ -9,7 +9,7 @@ class FullyConnectedLayer {
     this.nIn = nIn;
     this.nOut = nOut;
     this.pDropout = opts.pDropout || (opts.pDropout = 0);
-    this.activationFn = opts.activationFn || (opts.activationFn = 'sigmoid');
+    this.activationFn = opts.activationFn;
     this.w = lib.randn(this.nOut, this.nIn).mulEach(1 / Math.sqrt(this.nIn));
     this.b = lib.randn(this.nOut, 1);
   }
