@@ -86,7 +86,7 @@ class Network {
     for (let l = 2; l <= this.layers.length; l++) {
       let followinglayer = this.layers[this.layers.length - l + 1];
       let layer = this.layers[this.layers.length - l];
-      delta = followinglayer.w.trans().dot(delta).mul(lib.sigmoidPrime(layer.z));
+      delta = followinglayer.w.trans().dot(delta).mul(layer.costDelta(y));
       layer.update(delta);
     }
   }

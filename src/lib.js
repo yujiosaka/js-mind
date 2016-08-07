@@ -4,15 +4,6 @@ const linearAlgebra = require('linear-algebra')();
 const { Matrix } = linearAlgebra;
 
 /**
- * Derivative of the sigmoid function.
- * @param {Matrix} z
- * @return {Matrix} converted matrix with the same nRow, nCol
- */
-export function sigmoidPrime(z) {
-  return z.sigmoid().mul(z.sigmoid().mulEach(-1).plusEach(1));
-};
-
-/**
  * Randomly drop values from a layer.
  * @param {Matrix} layer
  * @param {number} pDropout probability to drop out value for each element

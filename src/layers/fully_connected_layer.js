@@ -24,8 +24,7 @@ class FullyConnectedLayer {
     }));
     let axis = 0;
     this.input = input;
-    this.z = this.w.dot(input).mulEach(1 - this.pDropout).plus(bMask);
-    this.output = this.z[this.activationFn](axis);
+    this.output = this.w.dot(input).mulEach(1 - this.pDropout).plus(bMask)[this.activationFn](axis);
     this.yOut = this.output.getArgMax();
     this.inputDropout = lib.dropoutLayer(inputDropout, this.pDropout);
     return this.outputDropout = this.w.dot(this.inputDropout).plus(bMask)[this.activationFn](axis);
