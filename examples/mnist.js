@@ -2,6 +2,8 @@
 
 var Promise = require('bluebird');
 
+var _ = require('lodash');
+
 var jsmind = require('../dist');
 
 var net = new jsmind.Network([
@@ -14,6 +16,8 @@ Promise.all([
   jsmind.MnistLoader.loadValidationDataWrapper(),
   jsmind.MnistLoader.loadTestDataWrapper()
 ]).spread(function(trainingData, validationData, testData) {
+  var testInput, prediction;
+
   net.SGD(
     trainingData,
     60, // epochs
@@ -24,4 +28,8 @@ Promise.all([
     testData: testData,
     lmbda: 0.1
   });
+
+  testInput = _.unzip(testData)[0];
+  prediction = net.predict(testInput);
+  console.log('prediction:' + prediction.toString());
 });
