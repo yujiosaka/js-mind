@@ -66,6 +66,7 @@ class Network {
     this.backprop(y);
     for (let i = 0; i < this.layers.length; i++) {
       let layer = this.layers[i];
+      // l2 regularization
       layer.w = layer.w.mulEach(1 - eta * (lmbda / n)).minus((layer.nw.mulEach(eta / miniBatch.length)));
       layer.b = layer.b.minus(layer.nb.mulEach(eta / miniBatch.length));
     }
