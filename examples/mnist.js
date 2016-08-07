@@ -4,11 +4,10 @@ var Promise = require('bluebird');
 
 var jsmind = require('../dist');
 
-var MnistLoader = jsmind.MnistLoader;
 Promise.all([
-  MnistLoader.loadTrainingDataWrapper(),
-  MnistLoader.loadValidationDataWrapper(),
-  MnistLoader.loadTestDataWrapper()
+  jsmind.MnistLoader.loadTrainingDataWrapper(),
+  jsmind.MnistLoader.loadValidationDataWrapper(),
+  jsmind.MnistLoader.loadTestDataWrapper()
 ]).spread(function(trainingData, validationData, testData) {
   var net = new jsmind.Network([
     new jsmind.layers.ReLULayer(784, 100),
