@@ -27,7 +27,7 @@ class FullyConnectedLayer {
     this.output = this.w.dot(input).mulEach(1 - this.pDropout).plus(bMask)[this.activationFn](axis);
     this.yOut = this.output.getArgMax();
     this.inputDropout = lib.dropoutLayer(inputDropout, this.pDropout);
-    return this.outputDropout = this.w.dot(this.inputDropout).plus(bMask)[this.activationFn](axis);
+    this.outputDropout = this.w.dot(this.inputDropout).plus(bMask)[this.activationFn](axis);
   }
 
   accuracy(y) {
@@ -36,7 +36,7 @@ class FullyConnectedLayer {
 
   update(delta) {
     this.nb = new Matrix(delta.getSum(1)).trans();
-    return this.nw = delta.dot(this.input.trans());
+    this.nw = delta.dot(this.input.trans());
   }
 }
 
