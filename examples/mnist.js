@@ -7,8 +7,9 @@ var _ = require('lodash');
 var jsmind = require('../dist');
 
 var net = new jsmind.Network([
-  new jsmind.layers.ReLULayer(784, 100),
-  new jsmind.layers.SoftmaxLayer(100, 10)
+  new jsmind.layers.ReLULayer(784, 100, {pDropout: 0.5}),
+  new jsmind.layers.ReLULayer(100, 100, {pDropout: 0.5}),
+  new jsmind.layers.SoftmaxLayer(100, 10, {pDropout: 0.5})
 ]);
 
 Promise.all([
