@@ -1,8 +1,8 @@
 'use strict';
 
-let linearAlgebra = require('linear-algebra')();
-let Matrix = linearAlgebra.Matrix;
-let lib = require('../lib');
+const { Matrix } = require('linear-algebra')();
+
+const lib = require('../lib');
 
 class FullyConnectedLayer {
   constructor(nIn, nOut, opts = {}) {
@@ -15,14 +15,14 @@ class FullyConnectedLayer {
   }
 
   setInput(input, inputDropout, miniBatchSize) {
-    let bMask = new Matrix(this.b.ravel().map(v => {
+    const axis = 0;
+    const bMask = new Matrix(this.b.ravel().map(v => {
       let results = [];
       for (let i = 0; i < miniBatchSize; i++) {
         results.push(v);
       }
       return results;
     }));
-    let axis = 0;
     this.input = input;
     this.output = this.w.dot(input).mulEach(1 - this.pDropout).plus(bMask)[this.activationFn](axis);
     this.yOut = this.output.getArgMax();

@@ -1,6 +1,6 @@
 'use strict';
 
-let FullyConnectedLayer = require('./fully_connected_layer');
+const FullyConnectedLayer = require('./fully_connected_layer');
 
 class ReLULayer extends FullyConnectedLayer {
   constructor(nIn, nOut, opts = {}) {

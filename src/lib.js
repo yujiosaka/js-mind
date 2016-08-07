@@ -1,7 +1,6 @@
 'use strict';
 
-const linearAlgebra = require('linear-algebra')();
-const { Matrix } = linearAlgebra;
+const { Matrix } = require('linear-algebra')();
 
 /**
  * Randomly drop values from a layer.

@@ -1,33 +1,32 @@
 'use strict';
 
-let _ = require('lodash');
-let linearAlgebra = require('linear-algebra')();
-let Matrix = linearAlgebra.Matrix;
+const _ = require('lodash');
+const { Matrix } = require('linear-algebra')();
 
-let DataLoader = require('./data_loader')
+const DataLoader = require('./data_loader')
 
 class MnistLoader {
   static loadTrainingDataWrapper() {
     return DataLoader.loadTrainingData().then(trD => {
-      let trainingInputs = trD[0].map(x => { return Matrix.reshape(x, 784, 1); });
-      let trainingResults = trD[1].map(y => { return MnistLoader._vectorizedResult(y); });
-      let trainingData = _.zip(trainingInputs, trainingResults);
+      const trainingInputs = trD[0].map(x => { return Matrix.reshape(x, 784, 1); });
+      const trainingResults = trD[1].map(y => { return MnistLoader._vectorizedResult(y); });
+      const trainingData = _.zip(trainingInputs, trainingResults);
       return trainingData;
     });
   }
 
   static loadValidationDataWrapper() {
     return DataLoader.loadValidationData().then(vaD => {
-      let validationInputs = vaD[0].map(x => { return Matrix.reshape(x, 784, 1); });
-      let validationData = _.zip(validationInputs, vaD[1]);
+      const validationInputs = vaD[0].map(x => { return Matrix.reshape(x, 784, 1); });
+      const validationData = _.zip(validationInputs, vaD[1]);
       return validationData;
     });
   }
 
   static loadTestDataWrapper() {
     return DataLoader.loadTestData().then(teD => {
-      let testInputs = teD[0].map(x => { return Matrix.reshape(x, 784, 1); });
-      let testData = _.zip(testInputs, teD[1]);
+      const testInputs = teD[0].map(x => { return Matrix.reshape(x, 784, 1); });
+      const testData = _.zip(testInputs, teD[1]);
       return testData;
     });
   }
