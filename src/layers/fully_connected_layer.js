@@ -36,6 +36,6 @@ export default class FullyConnectedLayer {
 
   update(delta) {
     this.nb = new Matrix(delta.getSum(1)).trans();
-    this.nw = delta.dot(this.input.trans());
+    this.nw = delta.dot(this.inputDropout.trans());
   }
 }
