@@ -5,11 +5,15 @@ Deep Learning Library Written in ES2015.
 
 ## Features
 
-  * Convolutional Neural Network
-  * Softmax
-  * L2 Regularization
-  * Dropout
-  * ReLU
+  * Activation functions
+    * Sigmoid function
+    * Softmax function
+    * ReLU function
+  * Cost Function
+    * Cross Entropy Cost Function
+  * Regularization
+    * L2 Regularization
+    * Dropout
 
 ## How To Use
 
