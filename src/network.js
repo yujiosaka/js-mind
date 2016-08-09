@@ -13,7 +13,6 @@ class Network {
   SGD(trainingData, epochs, miniBatchSize, eta, opts = {}) {
     opts.lmbda || (opts.lmbda = 0);
     let bestValidationAccuracy = 0;
-    let testAccuracy = null;
     for (let j = 0; j < epochs; j++) {
       trainingData = _.shuffle(trainingData);
       let miniBatches = this.createMiniBatches(trainingData, miniBatchSize);
@@ -31,23 +30,12 @@ class Network {
         if (validationAccuracy >= bestValidationAccuracy) {
           console.log('This is the best validation accuracy to date.');
           bestValidationAccuracy = validationAccuracy;
-
-          if (opts.testData) {
-            testAccuracy = this.accuracy(opts.testData);
-            console.log(`The corresponding test accuracy ${testAccuracy}`);
-          }
         }
-      } else if (opts.testData) {
-        testAccuracy = this.accuracy(opts.testData);
-        console.log(`Epoch ${j}: test accuracy ${testAccuracy}`);
       }
     }
     console.log('Finished training network.');
     if (opts.validationData) {
       console.log(`Best validation accuracy ${bestValidationAccuracy}`);
-      if (opts.testData) {
-        console.log(`Corresponding test accuracy ${testAccuracy}`);
-      }
     }
   }
 
@@ -101,10 +89,6 @@ class Network {
   feedforward(a) {
     this.train(a, 1);
     return this.layers[this.layers.length - 1];
-  }
-
-  test(data) {
-    return this.accuracy(data);
   }
 
   predict(inputs) {

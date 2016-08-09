@@ -14,11 +14,8 @@ var net = new jsmind.Network([
 
 Promise.all([
   jsmind.MnistLoader.loadTrainingDataWrapper(),
-  jsmind.MnistLoader.loadValidationDataWrapper(),
-  jsmind.MnistLoader.loadTestDataWrapper()
-]).spread(function(trainingData, validationData, testData) {
-  var testInput, prediction;
-
+  jsmind.MnistLoader.loadValidationDataWrapper()
+]).spread(function(trainingData, validationData) {
   net.SGD(
     trainingData,
     60, // epochs
@@ -26,11 +23,15 @@ Promise.all([
     0.03 // eta
   , {
     validationData: validationData,
-    testData: testData,
     lmbda: 0.1
   });
-
+}).then(function() {
+  return jsmind.MnistLoader.loadTestDataWrapper();
+}).then(function(testData) {
+  var testInput, prediction, accuracy;
   testInput = _.unzip(testData)[0];
+  accuracy = net.accuracy(testData);
   prediction = net.predict(testInput);
-  console.log('prediction:' + prediction.toString());
+  console.log('Test accuracy ' + accuracy);
+  console.log('Test prediction ' + prediction.toString());
 });
