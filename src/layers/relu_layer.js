@@ -1,8 +1,8 @@
 'use strict';
 
-const FullyConnectedLayer = require('./fully_connected_layer');
+import FullyConnectedLayer from './fully_connected_layer';
 
-class ReLULayer extends FullyConnectedLayer {
+export default class ReLULayer extends FullyConnectedLayer {
   constructor(nIn, nOut, opts = {}) {
     opts.activationFn = 'relu';
     super(nIn, nOut, opts);
@@ -14,5 +14,3 @@ class ReLULayer extends FullyConnectedLayer {
     });
   }
 }
-
-module.exports = ReLULayer;

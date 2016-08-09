@@ -1,6 +1,7 @@
 'use strict';
 
-const { Matrix } = require('linear-algebra')();
+import linearAlgebra from 'linear-algebra';
+const { Matrix } = linearAlgebra();
 
 /**
  * Randomly drop values from a layer.

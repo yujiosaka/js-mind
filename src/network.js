@@ -1,9 +1,9 @@
 'use strict';
 
-const _ = require('lodash');
-const { Matrix } = require('linear-algebra')();
+import _ from 'lodash';
+import linearAlgebra from 'linear-algebra';
 
-const lib = require('./lib');
+const { Matrix } = linearAlgebra();
 
 class Network {
   constructor(layers) {

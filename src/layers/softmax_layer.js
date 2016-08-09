@@ -1,8 +1,8 @@
 'use strict';
 
-const FullyConnectedLayer = require('./fully_connected_layer');
+import FullyConnectedLayer from './fully_connected_layer';
 
-class SoftmaxLayer extends FullyConnectedLayer {
+export default class SoftmaxLayer extends FullyConnectedLayer {
   constructor(nIn, nOut, opts = {}) {
     opts.activationFn = 'softmax';
     super(nIn, nOut, opts);
@@ -12,5 +12,3 @@ class SoftmaxLayer extends FullyConnectedLayer {
     return this.outputDropout.minus(y);
   }
 }
-
-module.exports = SoftmaxLayer;

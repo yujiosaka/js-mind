@@ -1,9 +1,11 @@
 'use strict';
 
-const _ = require('lodash');
-const { Matrix } = require('linear-algebra')();
+import _ from 'lodash';
+import linearAlgebra from 'linear-algebra';
 
-const DataLoader = require('./data_loader')
+import DataLoader from './data_loader';
+
+const { Matrix } = linearAlgebra();
 
 class MnistLoader {
   static loadTrainingDataWrapper() {
