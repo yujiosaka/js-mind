@@ -8,12 +8,10 @@ const { Matrix } = linearAlgebra();
 
 export default class FullyConnectedLayer {
   constructor(nIn, nOut, opts = {}) {
-    this.nIn = nIn;
-    this.nOut = nOut;
     this.pDropout = opts.pDropout || (opts.pDropout = 0);
     this.activationFn = opts.activationFn;
-    this.w = randn(this.nOut, this.nIn).mulEach(1 / Math.sqrt(this.nIn));
-    this.b = randn(this.nOut, 1);
+    this.w = randn(nOut, nIn).mulEach(1 / Math.sqrt(nIn));
+    this.b = randn(nOut, 1);
   }
 
   setInput(input, inputDropout, miniBatchSize) {
