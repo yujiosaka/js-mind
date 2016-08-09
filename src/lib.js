@@ -1,29 +1,7 @@
-"use strict";
+'use strict';
 
-const linearAlgebra = require("linear-algebra")();
-const { Matrix } = linearAlgebra;
-
-/**
- * Derivative of the sigmoid function.
- * @param {Matrix} z
- * @return {Matrix} converted matrix with the same nRow, nCol
- */
-export function sigmoidPrime(z) {
-  return z.sigmoid().mul(z.sigmoid().mulEach(-1).plusEach(1));
-};
-
-/**
- * Return a 10-dimensional unit vector with a 1.0 in the j'th position
- * and zeroes elsewhere.  This is used to convert a digit (0...9)
- * into a corresponding desired output from the neural network.
- * @param {number} j interger: zero to nine
- * @return {Matrix} 10x1
- */
-export function vectorizedResult(j) {
-  const e = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(i => [0]);
-  e[j] = [1];
-  return new Matrix(e);
-};
+import linearAlgebra from 'linear-algebra';
+const { Matrix } = linearAlgebra();
 
 /**
  * Randomly drop values from a layer.

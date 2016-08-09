@@ -37,8 +37,9 @@
   ],
   "author": "Yuji Isobe",
   "contributors": [
-    { "name": "Shin Suzuki"
-    , "email": "shinout310@gmail.com"
+    {
+      "name": "Shin Suzuki",
+      "email": "shinout310@gmail.com"
     }
   ],
   "license": "MIT",
@@ -47,6 +48,7 @@
   },
   "homepage": "https://github.com/yujiosaka/js-mind#readme",
   "dependencies": {
+    "bluebird": "^3.4.1",
     "linear-algebra": "git://github.com/yujiosaka/linear-algebra#for_neural_networks_and_deep_learning",
     "lodash": "^4.3.0"
   },
@@ -61,8 +63,8 @@
     "gulp-babel": "^6.1.2",
     "gulp-plumber": "^1.1.0",
     "gulp-util": "^3.0.7",
-    "mocha": "^2.4.5",
-    "node-circleci-autorelease": "^1.5.11",
+    "mocha": "^3.0.1",
+    "node-circleci-autorelease": "^2.2.0",
     "power-assert": "^1.2.0"
   },
   "node-circleci-autorelease": {
