@@ -1,9 +1,17 @@
 'use strict';
 
 import _ from 'lodash';
+import fs from 'fs';
+import Promise from 'bluebird';
 import linearAlgebra from 'linear-algebra';
 
+import layers from './layers';
+
 const { Matrix } = linearAlgebra();
+
+const ENCODING = 'utf8';
+
+Promise.promisifyAll(fs);
 
 class Network {
   constructor(layers) {
@@ -93,6 +101,21 @@ class Network {
 
   predict(inputs) {
     return inputs.map(x => { return this.feedforward(x).yOut; });
+  }
+
+  save(file) {
+    let json = JSON.stringify(this.layers.map(layer => {
+      return layer.dump();
+    }));
+    return fs.writeFileAsync(file, json, ENCODING);
+  }
+
+  static load(file) {
+    return fs.readFileAsync(file, ENCODING).then(json => {
+      return new Network(JSON.parse(json).map(data => {
+        return layers[data.className].load(data.className, data.properties);
+      }));
+    });
   }
 }
 
