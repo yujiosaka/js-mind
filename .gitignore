@@ -9,6 +9,9 @@ logs
 *.log
 npm-debug.log*
 
+# Temporay data
+/tmp/*
+
 # Runtime data
 pids
 *.pid

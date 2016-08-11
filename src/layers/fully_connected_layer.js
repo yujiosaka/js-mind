@@ -3,8 +3,21 @@
 import linearAlgebra from 'linear-algebra';
 
 import { randn, dropoutLayer } from '../lib';
+import layers from './';
 
 const { Matrix } = linearAlgebra();
+
+const MATRIX_OBJ = [
+  'w',
+  'b',
+  'input',
+  'output',
+  'inputDropout',
+  'outputDropout'
+].reduce((obj, key) => {
+  obj[key] = true;
+  return obj;
+}, {});
 
 export default class FullyConnectedLayer {
   constructor(nIn, nOut, opts = {}) {
@@ -37,5 +50,26 @@ export default class FullyConnectedLayer {
   update(delta) {
     this.nb = new Matrix(delta.getSum(1)).trans();
     this.nw = delta.dot(this.inputDropout.trans());
+  }
+
+  dump() {
+    let properties = Object.keys(this).reduce((obj, key) => {
+      let val = this[key];
+      obj[key] = (MATRIX_OBJ[key]) ? val.toArray() : val;
+      return obj;
+    }, {});
+    return {
+      className: this.constructor.name,
+      properties: properties
+    };
+  }
+
+  static load(className, properties) {
+    let layer = new layers[className](0, 0);
+    Object.keys(properties).forEach(key => {
+      let val = properties[key];
+      layer[key] = (MATRIX_OBJ[key]) ? new Matrix(val) : val;
+    });
+    return layer;
   }
 }
